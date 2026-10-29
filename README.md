@@ -4,9 +4,8 @@ Organización y Arquitectura de Computadores – Semana 10, Clase 18 (*Translati
 Basado en el capítulo 6 de Nand2Tetris.
 
 ## Estudiantes
-- Nombre:
-- Nombre:
-- Nombre:
+- Jerónimo Gutierrez
+- Juan Esteban Grisales
 
 ## Enunciado (diapositivas 58 y 60)
 
