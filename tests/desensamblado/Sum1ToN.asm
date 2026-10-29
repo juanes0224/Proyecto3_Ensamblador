@@ -1,0 +1,25 @@
+// Desensamblado de Sum1ToN.hack con HackDisassembler
+@16
+M=1
+@17
+M=0
+@16
+D=M
+@0
+D=D-M
+@18
+D;JGT
+@16
+D=M
+@17
+M=D+M
+@16
+M=M+1
+@4
+0;JMP
+@17
+D=M
+@1
+M=D
+@22
+0;JMP
