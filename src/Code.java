@@ -11,7 +11,6 @@ public class Code {
     private static final Map<String, String> COMP = new LinkedHashMap<String, String>();
     // otras formas de escribir lo mismo (ej A+D en vez de D+A)
     private static final Map<String, String> COMP_ALIAS = new HashMap<String, String>();
-    // tabla al reves para el desensamblador
     private static final Map<String, String> COMP_REVERSE = new HashMap<String, String>();
 
     private static final Map<String, String> JUMP = new LinkedHashMap<String, String>();
@@ -78,8 +77,6 @@ public class Code {
 
     private Code() { }
 
-    // ---------- de texto a binario (ensamblador) ----------
-
     // dest son 3 bits: A D M. se revisa que letras tiene, asi DM y MD dan lo mismo
     public static String dest(String mnemonic) {
         if (mnemonic == null) {
@@ -94,7 +91,6 @@ public class Code {
         return "" + a + d + m;
     }
 
-    // busca comp en la tabla (primero mira si es un alias)
     public static String comp(String mnemonic) {
         String key = COMP_ALIAS.containsKey(mnemonic) ? COMP_ALIAS.get(mnemonic) : mnemonic;
         String bits = COMP.get(key);
@@ -121,8 +117,6 @@ public class Code {
         }
         return false;
     }
-
-    // ---------- de binario a texto (desensamblador) ----------
 
     // se escribe en el orden A, M, D (AM, AD, MD, AMD) que es como vienen
     // los archivos de nand2tetris, asi el ensamblador oficial tambien lo lee

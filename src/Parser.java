@@ -7,7 +7,6 @@ import java.util.List;
 // Parser: lee el .asm y separa cada instruccion en sus partes
 public class Parser {
 
-    // los 3 tipos de instruccion que hay en hack
     public enum InstructionType { A_INSTRUCTION, C_INSTRUCTION, L_INSTRUCTION }
 
     private final List<String> lines = new ArrayList<String>();
@@ -30,7 +29,6 @@ public class Parser {
         }
     }
 
-    // quita los comentarios y los espacios de la linea
     private static String clean(String line) {
         int comment = line.indexOf("//");
         if (comment >= 0) {
@@ -43,7 +41,6 @@ public class Parser {
         return index + 1 < lines.size();
     }
 
-    // pasa a la siguiente instruccion
     public void advance() {
         index++;
         current = lines.get(index);
@@ -80,7 +77,6 @@ public class Parser {
         return eq >= 0 ? current.substring(0, eq) : "";
     }
 
-    // lo que esta entre el = y el ;
     public String comp() {
         int eq = current.indexOf('=');
         int semi = current.indexOf(';');
@@ -95,7 +91,6 @@ public class Parser {
         return semi >= 0 ? current.substring(semi + 1) : "";
     }
 
-    // para mostrar en los mensajes de error
     public String currentInstruction() {
         return current;
     }

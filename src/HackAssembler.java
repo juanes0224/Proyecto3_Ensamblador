@@ -18,7 +18,6 @@ public class HackAssembler {
             System.exit(1);
         }
         int errors = 0;
-        // se puede pasar mas de un archivo
         for (String input : args) {
             try {
                 String output = assembleFile(input);
@@ -31,7 +30,6 @@ public class HackAssembler {
         System.exit(errors == 0 ? 0 : 1);
     }
 
-    // ensambla un archivo y deja el .hack en la misma carpeta
     public static String assembleFile(String input) throws IOException {
         if (!input.toLowerCase().endsWith(".asm")) {
             throw new IllegalArgumentException("se esperaba un archivo .asm");
@@ -109,7 +107,6 @@ public class HackAssembler {
         return s.matches("\\d+");
     }
 
-    // numero a binario de 16 bits rellenando con ceros a la izquierda
     static String toBinary16(int value) {
         String bits = Integer.toBinaryString(value & 0xFFFF);
         StringBuilder sb = new StringBuilder();

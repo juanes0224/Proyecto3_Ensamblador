@@ -47,7 +47,6 @@ public class HackDisassembler {
         }
     }
 
-    // lee el .hack linea por linea y escribe el .asm
     public static void disassembleFile(String input, String output, boolean addresses)
             throws IOException {
         BufferedReader in = new BufferedReader(new FileReader(input));
@@ -63,7 +62,6 @@ public class HackDisassembler {
                 if (line.isEmpty()) {
                     continue;
                 }
-                // cada linea tiene que ser de 16 ceros y unos
                 if (!line.matches("[01]{16}")) {
                     throw new IllegalArgumentException(
                             "linea " + lineNumber + " no es una instruccion de 16 bits: " + line);
@@ -82,7 +80,6 @@ public class HackDisassembler {
         }
     }
 
-    // traduce una sola instruccion
     public static String disassemble(String bits) {
         // si empieza en 0 es instruccion A, el resto es el numero
         if (bits.charAt(0) == '0') {
@@ -95,7 +92,6 @@ public class HackDisassembler {
         if (comp == null) {
             return "// instruccion C no valida: " + bits;
         }
-        // se arma dest=comp;jump (sin el = o el ; si no hay)
         StringBuilder sb = new StringBuilder();
         if (!dest.isEmpty()) {
             sb.append(dest).append('=');
